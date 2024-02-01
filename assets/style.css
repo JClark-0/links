@@ -19,6 +19,11 @@ main {
     padding-left: var(--gutters);
     padding-right: var(--gutters);
 }
+div {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gutters);
+}
 
 h1 {
     font-size: calc(var(--font-size) * 2);
@@ -29,6 +34,10 @@ h1 {
 
 h2 {
     font-size: calc(var(--font-size) * 1.2);
+}
+
+img {
+    display: block;
 }
 
 footer {
