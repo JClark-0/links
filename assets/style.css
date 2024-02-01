@@ -2,7 +2,7 @@
 
 :root {
     --font-main: 'Poppins', sans-serif;
-    --font-size: 32px;
+    --font-size: 28px;
     --gutters: calc(var(--font-size)* 2)
 }
 
@@ -13,6 +13,11 @@ body {
     flex-direction: column;
     row-gap: var(--gutters);
     padding-top: var(--gutters);
+}
+
+header {
+    padding-left: var(--gutters);
+    padding-right: var(--gutters);
 }
 
 main {
@@ -28,8 +33,6 @@ div {
 h1 {
     font-size: calc(var(--font-size) * 2);
     font-weight: 700;
-    padding-left: var(--gutters);
-    padding-right: var(--gutters);
 }
 
 h2 {
@@ -38,8 +41,14 @@ h2 {
 
 img {
     display: block;
+    width: 100%;
 }
 
+figcaption {
+    padding-top: 10px;
+    font-size: calc(var(--font-size) / 1.2);
+
+}
 footer {
     font-size: calc(var(--font-size) / 1.2);
     color: white;
