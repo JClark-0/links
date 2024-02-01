@@ -2,8 +2,8 @@
 
 :root {
     --font-main: 'Poppins', sans-serif;
-    --font-size: 18px;
-    --gutters: 12px;
+    --font-size: 20px;
+    --gutters: calc(var(--font-size)* 2)
 }
 
 body {
