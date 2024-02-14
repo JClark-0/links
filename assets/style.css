@@ -107,6 +107,11 @@ blockquote {
     font-weight: 600;
 
 }
+
+.vid_block {
+    padding-bottom: var(--gutters);
+}
+
 .lnk_block {
     padding-bottom: var(--gutters);
 }
