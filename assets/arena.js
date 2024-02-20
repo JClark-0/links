@@ -38,14 +38,15 @@ let renderBlock = (block) => {
 		let linkItem =
 			`
 			<section class="lnk_block">
-			<details>
-				<div class="lnk_info">
-					<a href="${ block.source.url }">${ block.title }</a>
-					<p>${ block.description_html }</p>
-				</div>
-					<summary>
-						<p>click for links</p>
-					</summary>
+				<details>
+					<div class="lnk_info">
+						<a href="${ block.source.url }">${ block.title }</a>
+					</div>
+						<summary>
+							<p>click for links</p>
+						</summary>
+				</details>
+			</section>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
@@ -53,15 +54,21 @@ let renderBlock = (block) => {
 
 	else if (block.class == 'Image') {
 		console.log(block)
+		let connectedDate = new Date(block.connected_at);
+		let currentDate = new Date();
+		let differenceMs = currentDate - connectedDate;
+		let daysAgo = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+		let formattedDate = `${connectedDate.getMonth() + 1}.${connectedDate.getDate()}.${connectedDate.getFullYear()}`;
 		let imageItem = 
 		`
 			<section class="img_block">
 				<figure class="fg">
-					<img src="${ block.image.original.url }" alt="${ block.title }">
-					<figcaption class="cap"><h2>${ block.title }s</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p>Added ${ block.connected_at } by ${ block.connected_by_username }</p>
-						<p>${ block.class }</p>
-					</figcaption>
+					<img src="${ block.image.square.url }" alt="${ block.title }">
+					<figcaption class="cap"><h2>${ block.title }s</h2>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						<p class="date">${ formattedDate }</p>
+						<p class="tag">${ block.class }</p>
+					</figcaption>	
 				</figure>
 			</section>
 		`
