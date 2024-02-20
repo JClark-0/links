@@ -160,7 +160,7 @@ let renderBlock = (block) => {
 
 		// Linked audio!
 		else if (embed.includes('rich')) {
-			// …up to you!
+			// …up to you!s
 		}
 	}
 }

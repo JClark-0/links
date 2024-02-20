@@ -11,7 +11,6 @@
 body {
     font-family: var(--font-main);
     font-size: var(--font-size);
-
 }
 
 nav {
@@ -30,12 +29,6 @@ header {
     flex-direction: column;
     height: 100vh;
 }
-
-span {
-    position: fixed;
-    mix-blend-mode: multiply;
-}
-
 
 main {
     padding-left: var(--gutters);
@@ -100,6 +93,11 @@ summary {
 
 .txt_block {
     padding-bottom: var(--gutters);
+    padding-top: var(--gutters);
+    padding-left: var(--gutters);
+    padding-right: var(--gutters);
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
 blockquote {
