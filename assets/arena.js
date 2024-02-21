@@ -69,7 +69,6 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
-			<img class="cracking" src="assets/media/crack3.png"></img>
 				<figure class="side_fg">
 					<img src="${ block.image.square.url }" alt="${ block.title }">
 					<figcaption class="cap">
@@ -147,7 +146,6 @@ let renderBlock = (block) => {
 			`
 				<li class="pdf_block">
 						<figure class="side_fg">
-						<img class="cracking" src="assets/media/crack2.png"></img>
 						<img src="${ block.image.square.url }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
@@ -248,3 +246,32 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		renderUser(data.user, channelUsers)
 	})
 
+
+document.onclick = userClicked;
+function userClicked() {
+	var x = event.clientX;
+	var y = event.clientY;
+	var crackAppear = document.getElementById("mouseCrack");
+	crackAppear.style.display = 'block';
+	crackAppear.style.position = 'absolute';
+	crackAppear.style.left = x + 'px';
+	crackAppear.style.top = y + 'px';
+
+	var imageWidth = crackAppear.offsetWidth;
+    var imageHeight = crackAppear.offsetHeight;
+    var xOffset = imageWidth / 2;
+    var yOffset = imageHeight / 2;
+    
+    // Adjust the image position so that its center aligns with the mouse coordinates
+    crackAppear.style.left = (x - xOffset) + 'px';
+    crackAppear.style.top = (y - yOffset) + 'px';
+
+	toggleCrack();
+
+}
+
+
+function toggleCrack() {
+	var img = document.getElementById('mouseCrack');
+	img.classList.toggle('fade-out');
+}

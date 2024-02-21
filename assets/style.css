@@ -71,14 +71,6 @@ h2 {
     max-width: 45ch;
 }
 
-.cracking {
-    position: absolute;
-    
-}
-
-.cracking:hover {
-    display:none;
-}
 img {
     display: block;
     width: 50%;
@@ -137,6 +129,7 @@ audio {
 
 a:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .outwards::after {
@@ -182,6 +175,23 @@ button {
 	transform: rotate(5deg);
     background-color: black;
 }
+
+@keyframes fadeOut {
+    100% { opacity: 0; }
+    0% { opacity: 1; }
+  }
+
+  .fade-out {
+    animation: fadeOut 4s forwards;
+  }
+
+
+#mouseCrack {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+}
+
 
 @media(min-width: 600px) {
 
