@@ -7,8 +7,8 @@
     --font-size: 16px;
     --gutters: calc(var(--font-size)* 2)
 }
-
- * {border:1px solid red;}  
+/* 
+ * {border:1px solid red;}   */
 
 body {
     font-family: var(--font-main);
@@ -83,8 +83,9 @@ summary {
     padding-top: var(--gutters);
     padding-left: var(--gutters);
     padding-right: var(--gutters);
-    background-color: rgb(0, 0, 0);
-    color: white;
+    border:1px solid black;
+    transition: all .6s ease-in-out; /* Transition everything. */
+	will-change: transform; /* Improves the aliasing! */
 
 }
 
@@ -150,6 +151,19 @@ footer {
     padding-bottom: var(--gutters);
     padding-left: var(--gutters);
     padding-right: var(--gutters);
+}
+
+button {
+	background-color: rgb(209, 209, 209);
+	border-radius: calc(var(--base) / 2);
+	cursor: pointer; /* Show the Mickey-Mouse hand! */
+	padding: calc(var(--base) / 2);
+    align-items: center;
+}
+
+.crack { /* When the class is applied with JS! */
+	transform: rotate(5deg);
+    background-color: black;
 }
 
 @media(min-width: 600px) {

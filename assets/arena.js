@@ -42,6 +42,9 @@ let renderBlock = (block) => {
 	let daysAgo = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
 	let formattedDate = `${connectedDate.getMonth() + 1}.${connectedDate.getDate()}.${connectedDate.getFullYear()}`;
 
+
+
+
 	// Links!
 	if (block.class == 'Link') {
 		let linkItem =
@@ -81,7 +84,7 @@ let renderBlock = (block) => {
 
 
 	else if (block.class == 'Text') {
-		console.log(block)
+
 		let textItem =
 		`
 			<li class="txt_block">
@@ -92,10 +95,24 @@ let renderBlock = (block) => {
 						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 						<p class="date">${ formattedDate }</p>
 					</figcaption>
+					<button class="outwards" id="explore">Explore</button>
 				</figure>
 			</li>
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
+
+		let highlightClass = 'crack';
+
+		// Select all buttons with the class "outwards"
+		let switchButtons = document.querySelectorAll('#explore');
+	
+		// Iterate over each button and attach click event listener
+		switchButtons.forEach(button => {
+			button.onclick = () => {
+				// Toggle the class for the parent of the clicked button
+				button.closest('.txt_block').classList.toggle(highlightClass);
+			};
+		});
 	}
 
 	// // Uploaded (not linked) media…
@@ -228,3 +245,4 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
 	})
+
