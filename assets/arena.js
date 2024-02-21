@@ -69,7 +69,7 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
-			<img class="cracking" src="assets/media/crack.png"></img>
+			<img class="cracking" src="assets/media/crack3.png"></img>
 				<figure class="side_fg">
 					<img src="${ block.image.square.url }" alt="${ block.title }">
 					<figcaption class="cap">
@@ -147,7 +147,7 @@ let renderBlock = (block) => {
 			`
 				<li class="pdf_block">
 						<figure class="side_fg">
-						<img class="cracking" src="assets/media/crack.png"></img>
+						<img class="cracking" src="assets/media/crack2.png"></img>
 						<img src="${ block.image.square.url }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>

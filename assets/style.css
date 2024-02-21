@@ -7,8 +7,8 @@
     --font-size: 16px;
     --gutters: calc(var(--font-size)* 2)
 }
-/* 
- * {border:1px solid red;}   */
+
+ /* * {border:1px solid red;}   */
 
 body {
     font-family: var(--font-main);
@@ -32,6 +32,12 @@ header {
     height: 100vh;
 }
 
+.head_cracking {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
 main {
     padding-left: var(--gutters);
     padding-right: var(--gutters);
