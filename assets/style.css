@@ -65,7 +65,14 @@ h2 {
     max-width: 45ch;
 }
 
+.cracking {
+    position: absolute;
+    
+}
 
+.cracking:hover {
+    display:none;
+}
 img {
     display: block;
     width: 50%;
@@ -87,6 +94,10 @@ summary {
     transition: all .6s ease-in-out; /* Transition everything. */
 	will-change: transform; /* Improves the aliasing! */
 
+}
+
+.img_block:hover {
+    background-color: rgb(239, 239, 239);
 }
 
 blockquote {
@@ -154,11 +165,11 @@ footer {
 }
 
 button {
-	background-color: rgb(209, 209, 209);
-	border-radius: calc(var(--base) / 2);
+	background-color: rgb(237, 237, 237);
+	border-radius: 10px;
 	cursor: pointer; /* Show the Mickey-Mouse hand! */
-	padding: calc(var(--base) / 2);
-    align-items: center;
+	padding: 5px;
+    text-align: center;
 }
 
 .crack { /* When the class is applied with JS! */
@@ -187,11 +198,5 @@ button {
 
     .intro {
         padding-left: calc(var(--gutters)*2);
-    }
-
-    ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-  
     }
 }

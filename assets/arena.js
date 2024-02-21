@@ -69,6 +69,7 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
+			<img class="cracking" src="assets/media/crack.png"></img>
 				<figure class="side_fg">
 					<img src="${ block.image.square.url }" alt="${ block.title }">
 					<figcaption class="cap">
@@ -146,6 +147,7 @@ let renderBlock = (block) => {
 			`
 				<li class="pdf_block">
 						<figure class="side_fg">
+						<img class="cracking" src="assets/media/crack.png"></img>
 						<img src="${ block.image.square.url }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
@@ -189,7 +191,7 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-					<li class="vid_block">
+					<li class="vid_block">'
 						<figure class="reg_fg">
 							${ block.embed.html }
 							<figcaption class="cap">
