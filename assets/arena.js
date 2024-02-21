@@ -66,11 +66,11 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
-				<figure class="fg">
+				<figure class="side_fg">
 					<img src="${ block.image.square.url }" alt="${ block.title }">
-					<figcaption class="cap"><h2>${ block.title }s</h2>
-						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+					<figcaption class="cap">
 						<p class="date">${ formattedDate }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
 						<p class="tag">${ block.class }</p>
 					</figcaption>	
 				</figure>
@@ -85,11 +85,12 @@ let renderBlock = (block) => {
 		let textItem =
 		`
 			<li class="txt_block">
-				<figure>
+				<figure class="reg_fg">
 					<blockquote>${ block.content }</blockquote>
-					<figcaption>${ block.generated_title }
-					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-					<p class="date">${ formattedDate }</p>
+					<figcaption class="cap">
+						<p>${ block.generated_title }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						<p class="date">${ formattedDate }</p>
 					</figcaption>
 				</figure>
 			</li>
@@ -106,10 +107,14 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<li>
+				<li class="vid_block">
 					<video controls src="${ block.attachment.url }"></video>
-					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-					<p class="date">${ formattedDate }</p>
+						<figure>
+							<figcaption class="cap">
+								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+								<p class="date">${ formattedDate }</p>
+							</figcaption>
+						</figure>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -123,14 +128,14 @@ let renderBlock = (block) => {
 			let pdfItem =
 			`
 				<li class="pdf_block">
-						<figure>
-						<a href="${ block.attachment.url }">
-							<img src="${ block.image.large.url }">
-							${ block.title }
-						</a>
-							<figcaption>
-								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						<figure class="side_fg">
+						<img src="${ block.image.square.url }">
+							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
+								<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+								<a class = href="${ block.attachment.url }">
+									<p class= "tag outwards">PDF</p>
+								</a>
 							</figcaption>
 						<figure>
 				</li>
@@ -143,11 +148,14 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
-				<li>
-					<p><em>Audio</em></p>
-					<audio controls src="${ block.attachment.url }"></video>
-					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+				<li class="aud_block">
+				<figure class="side_fg">
+					<audio controls src="${ block.attachment.url }"></audio>
+					<ficaption class="cap">
 						<p class="date">${ formattedDate }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+					</figcaption
+				</figure>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
@@ -165,12 +173,13 @@ let renderBlock = (block) => {
 			let linkedVideoItem =
 				`
 					<li class="vid_block">
-						<p><em>${ block.title }</em></p>
-						${ block.embed.html }
-						<figcaption>
-						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-						<p class="date">${ formattedDate }</p>
-						</figcaption>
+						<figure class="reg_fg">
+							${ block.embed.html }
+							<figcaption class="cap">
+								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+								<p class="date">${ formattedDate }</p>
+							</figcaption>
+						</figure>
 					</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
@@ -191,7 +200,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 	let userAddress =
 		`
 		<address>
-			<img src="${ user.avatar_image.display }">
+
 			<h3>${ user.first_name }</h3>
 			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
 		</address>
