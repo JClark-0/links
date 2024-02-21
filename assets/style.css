@@ -37,7 +37,7 @@ main {
     padding-right: var(--gutters);
 }
 
-div {
+ul {
     display: flex;
     flex-direction: column;
     row-gap: var(--gutters);
@@ -50,7 +50,8 @@ h1 {
     font-size: calc(var(--font-size) * 5);
     font-weight: 600;
     line-height: 100%;
-    padding-bottom: calc(var(--gutters)*1.2);
+    padding-bottom: calc(var(--gutters)*1);
+    padding-top: calc(var(--gutters)*2);
     position: sticky;
 }
 
@@ -72,6 +73,7 @@ p {
 img {
     display: block;
     width: 50%;
+    max-width: 50%;
 }
 
 .fg {
@@ -85,9 +87,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content:center;
-    
 }
-
 
 summary {
     border-bottom:1px solid black;
@@ -179,5 +179,10 @@ footer {
 
     .intro {
         padding-left: calc(var(--gutters)*2);
+    }
+
+    ul {
+        flex-direction: row;
+  
     }
 }

@@ -30,14 +30,23 @@ let placeChannelInfo = (data) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
+
 	// To start, a shared `ul` where we’ll insert all our blocks
 	let channelBlocks = document.getElementById('channel-blocks')
+
+
+	// Date Format
+	let connectedDate = new Date(block.connected_at);
+	let currentDate = new Date();
+	let differenceMs = currentDate - connectedDate;
+	let daysAgo = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+	let formattedDate = `${connectedDate.getMonth() + 1}.${connectedDate.getDate()}.${connectedDate.getFullYear()}`;
 
 	// Links!
 	if (block.class == 'Link') {
 		let linkItem =
 			`
-			<section class="lnk_block">
+			<li class="lnk_block">
 				<details>
 					<div class="lnk_info">
 						<a href="${ block.source.url }">${ block.title }</a>
@@ -46,7 +55,7 @@ let renderBlock = (block) => {
 							<p>click for links</p>
 						</summary>
 				</details>
-			</section>
+			</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
@@ -54,14 +63,9 @@ let renderBlock = (block) => {
 
 	else if (block.class == 'Image') {
 		console.log(block)
-		let connectedDate = new Date(block.connected_at);
-		let currentDate = new Date();
-		let differenceMs = currentDate - connectedDate;
-		let daysAgo = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
-		let formattedDate = `${connectedDate.getMonth() + 1}.${connectedDate.getDate()}.${connectedDate.getFullYear()}`;
 		let imageItem = 
 		`
-			<section class="img_block">
+			<li class="img_block">
 				<figure class="fg">
 					<img src="${ block.image.square.url }" alt="${ block.title }">
 					<figcaption class="cap"><h2>${ block.title }s</h2>
@@ -70,7 +74,7 @@ let renderBlock = (block) => {
 						<p class="tag">${ block.class }</p>
 					</figcaption>	
 				</figure>
-			</section>
+			</li>
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 	}
@@ -80,14 +84,15 @@ let renderBlock = (block) => {
 		console.log(block)
 		let textItem =
 		`
-			<section class="txt_block">
+			<li class="txt_block">
 				<figure>
 					<blockquote>${ block.content }</blockquote>
 					<figcaption>${ block.generated_title }
-						<p>Added ${ block.connected_at } by ${ block.connected_by_username }</p>
+					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+					<p class="date">${ formattedDate }</p>
 					</figcaption>
 				</figure>
-			</section>
+			</li>
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 	}
@@ -101,9 +106,11 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
-				<section>
+				<li>
 					<video controls src="${ block.attachment.url }"></video>
-				</section>
+					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+					<p class="date">${ formattedDate }</p>
+				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
 			// More on video, like the `autoplay` attribute:
@@ -115,16 +122,18 @@ let renderBlock = (block) => {
 			// …up to you!
 			let pdfItem =
 			`
-				<section class="pdf_block">
-					<a href="${ block.attachment.url }">
+				<li class="pdf_block">
 						<figure>
+						<a href="${ block.attachment.url }">
 							<img src="${ block.image.large.url }">
-							<figcaption>
 							${ block.title }
+						</a>
+							<figcaption>
+								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+								<p class="date">${ formattedDate }</p>
 							</figcaption>
 						<figure>
-					</a>
-				</section>
+				</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
 		}
@@ -134,10 +143,12 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
-				<section>
+				<li>
 					<p><em>Audio</em></p>
 					<audio controls src="${ block.attachment.url }"></video>
-				</section>
+					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						<p class="date">${ formattedDate }</p>
+				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
 			// More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
@@ -153,13 +164,14 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-					<section class="vid_block">
+					<li class="vid_block">
 						<p><em>${ block.title }</em></p>
 						${ block.embed.html }
 						<figcaption>
-						<p>Added ${ block.connected_at } by ${ block.connected_by_username }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						<p class="date">${ formattedDate }</p>
 						</figcaption>
-					</section>
+					</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
 			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
@@ -175,17 +187,17 @@ let renderBlock = (block) => {
 
 
 // // It‘s always good to credit your work:
-// let renderUser = (user, container) => { // You can have multiple arguments for a function!
-// 	let userAddress =
-// 		`
-// 		<address>
-// 			<img src="${ user.avatar_image.display }">
-// 			<h3>${ user.first_name }</h3>
-// 			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
-// 		</address>
-// 		`
-// 	container.insertAdjacentHTML('beforeend', userAddress)
-// }
+let renderUser = (user, container) => { // You can have multiple arguments for a function!
+	let userAddress =
+		`
+		<address>
+			<img src="${ user.avatar_image.display }">
+			<h3>${ user.first_name }</h3>
+			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
+		</address>
+		`
+	container.insertAdjacentHTML('beforeend', userAddress)
+}
 
 
 
@@ -203,7 +215,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		})
 
 		// Also display the owner and collaborators:
-		// let channelUsers = document.getElementById('channel-users') // Show them together
-		// data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
-		// renderUser(data.user, channelUsers)
+		let channelUsers = document.getElementById('channel-users') // Show them together
+		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
+		renderUser(data.user, channelUsers)
 	})
