@@ -32,12 +32,6 @@ header {
     height: 100vh;
 }
 
-.head_cracking {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-}
 main {
     padding-left: var(--gutters);
     padding-right: var(--gutters);
@@ -49,8 +43,6 @@ ul {
     row-gap: var(--gutters);
     margin-bottom: calc(var(--gutters)* 4);
 }
-
-
 
 h1 {
     font-size: calc(var(--font-size) * 5);
@@ -73,8 +65,9 @@ h2 {
 
 img {
     display: block;
-    width: 50%;
-    max-width: 50%;
+    width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
 }
 
 summary {
@@ -88,7 +81,6 @@ summary {
     padding-top: var(--gutters);
     padding-left: var(--gutters);
     padding-right: var(--gutters);
-    border:1px solid black;
     transition: all .6s ease-in-out; /* Transition everything. */
 	will-change: transform; /* Improves the aliasing! */
 
@@ -99,6 +91,8 @@ summary {
 }
 
 blockquote {
+    border-left: 1px solid black; ;
+    padding-left: 20px;
     font-size: calc(var(--font-size));
     font-weight: 600;
 }
@@ -124,6 +118,7 @@ audio {
     font-size: calc(var(--font-size) / 1.2);
     display: flex;
     flex-direction: column;
+    padding-top:calc(var(--gutters) /2);
     gap: 8px;
 }
 
@@ -146,10 +141,12 @@ a:hover {
     font-family: monospace;
 }
 .tag {
-    background-color: rgb(255, 255, 255);
+    background-color: black;
+    color:white;
+    /* background-color: rgb(255, 255, 255); */
+    /* border: 1px solid black; */
     text-align: center;
     padding: 5px;
-    border: 1px solid black;
     border-radius: 8px;
 }
 
@@ -164,7 +161,10 @@ footer {
 }
 
 button {
-	background-color: rgb(237, 237, 237);
+    /* border: 1px solid black; */
+    background-color: black;
+    color:white;
+    width: 50%;
 	border-radius: 10px;
 	cursor: pointer; /* Show the Mickey-Mouse hand! */
 	padding: 5px;
@@ -214,5 +214,15 @@ button {
 
     .intro {
         padding-left: calc(var(--gutters)*2);
+    }
+
+    ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    li {
+        width: calc(33% - var(--gutters));
     }
 }

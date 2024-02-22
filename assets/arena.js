@@ -69,7 +69,7 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
-				<figure class="side_fg">
+				<figure class="reg_fg">
 					<img src="${ block.image.square.url }" alt="${ block.title }">
 					<figcaption class="cap">
 						<p class="date">${ formattedDate }</p>
@@ -145,7 +145,7 @@ let renderBlock = (block) => {
 			let pdfItem =
 			`
 				<li class="pdf_block">
-						<figure class="side_fg">
+						<figure class="reg_fg">
 						<img src="${ block.image.square.url }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
@@ -166,7 +166,7 @@ let renderBlock = (block) => {
 			let audioItem =
 				`
 				<li class="aud_block">
-				<figure class="side_fg">
+				<figure class="reg_fg">
 					<audio controls src="${ block.attachment.url }"></audio>
 					<ficaption class="cap">
 						<p class="date">${ formattedDate }</p>
