@@ -74,11 +74,13 @@ let renderBlock = (block) => {
 					<figcaption class="cap">
 						<p class="date">${ formattedDate }</p>
 						<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
-						<p class="tag">${ block.class }</p>
+						
 					</figcaption>	
 				</figure>
 			</li>
 		`
+		// <p class="tag">${ block.class }</p>
+
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 	}
 
@@ -89,16 +91,18 @@ let renderBlock = (block) => {
 		`
 			<li class="txt_block">
 				<figure class="reg_fg">
-					<blockquote>${ block.content }</blockquote>
+					<blockquote>${ block.content }
+					<p class="txt_note"> - ${ block.generated_title }</p></blockquote>
 					<figcaption class="cap">
-						<p>${ block.generated_title }</p>
-						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 						<p class="date">${ formattedDate }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 					</figcaption>
-					<button class="outwards" id="explore">Explore</button>
 				</figure>
 			</li>
 		`
+
+		//<button class="outwards" id="explore">Explore</button>
+		
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 
 		let highlightClass = 'crack';
@@ -128,8 +132,8 @@ let renderBlock = (block) => {
 					<video controls src="${ block.attachment.url }"></video>
 						<figure>
 							<figcaption class="cap">
-								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 								<p class="date">${ formattedDate }</p>
+								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 							</figcaption>
 						</figure>
 				</li>
@@ -189,12 +193,12 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-					<li class="vid_block">'
+					<li class="vid_block">
 						<figure class="reg_fg">
 							${ block.embed.html }
 							<figcaption class="cap">
-								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 								<p class="date">${ formattedDate }</p>
+								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 							</figcaption>
 						</figure>
 					</li>
