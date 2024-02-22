@@ -8,7 +8,7 @@
     --gutters: calc(var(--font-size)* 2)
 }
 
- /* * {border:1px solid red;}   */
+ * {border:1px solid red;}  
 
 body {
     font-family: var(--font-main);
@@ -38,9 +38,14 @@ main {
 }
 
 ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: calc(var(--gutters)* 3);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--gutters);
+    padding-bottom: var(--gutters);
+}
+
+li {
+    width: 100%;
 }
 
 h1 {
@@ -220,12 +225,6 @@ footer {
     }
 
     ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    li {
-        width: calc(33% - var(--gutters));
+        grid-auto-rows: minmax(120px, auto);
     }
 }
