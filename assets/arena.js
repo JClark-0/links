@@ -50,17 +50,19 @@ let renderBlock = (block) => {
 			`
 			<li class="lnk_block">
 				<details>
-					<div class="lnk_info">
+					<div>
 						<a href="${ block.source.url }">${ block.title }</a>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 					</div>
-						<summary>
+					<summary>
 						<figure class="reg_fg">
-						<img src="${ block.image.square.url }" alt="${ block.title }">
-						<figcaption class="cap">
-							<p class="date">${ formattedDate }</p>
-							<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-						</figcaption>	
-						</summary>
+							<img src="${ block.image.square.url }" alt="${ block.title }">
+							<figcaption class="cap">
+									<p class="date">${ formattedDate }</p>
+									<p class="add">+</p>
+							</figcaption>
+						</figure>
+					</summary>
 				</details>
 			</li>
 			`
@@ -72,13 +74,20 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
-				<figure class="reg_fg">
-					<img src="${ block.image.square.url }" alt="${ block.title }">
-					<figcaption class="cap">
-						<p class="date">${ formattedDate }</p>
+				<details>
+					<div>
 						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-					</figcaption>	
-				</figure>
+					</div>
+					<summary>
+						<figure class="reg_fg">
+							<img src="${ block.image.square.url }" alt="${ block.title }">
+							<figcaption class="cap">
+								<p class="date">${ formattedDate }</p>
+								<p class="add">+</p>
+							</figcaption>	
+						</figure>
+					</summary>
+				</details>
 			</li>
 		`
 		// <p class="tag">${ block.class }</p>
@@ -90,16 +99,25 @@ let renderBlock = (block) => {
 	else if (block.class == 'Text') {
 
 		let textItem =
+
 		`
 			<li class="txt_block">
-				<figure class="reg_fg">
-					<blockquote>${ block.content }
-					<p class="txt_note"> - ${ block.generated_title }</p></blockquote>
-					<figcaption class="cap">
-						<p class="date">${ formattedDate }</p>
-						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-					</figcaption>
-				</figure>
+				<details>
+				<div>
+					<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+				</div>
+				<summary>
+					<figure class="reg_fg">
+						<blockquote>${ block.content }
+							<p class="txt_note"> - ${ block.generated_title }</p>
+						</blockquote>
+						<figcaption class="cap">
+								<p class="date">${ formattedDate }</p>
+								<p class="add">+</p>
+						</figcaption>
+					</figure>
+				</summary>
+			</details>
 			</li>
 		`
 
@@ -131,13 +149,20 @@ let renderBlock = (block) => {
 			let videoItem =
 				`
 				<li class="vid_block">
-					<video controls src="${ block.attachment.url }"></video>
-						<figure>
-							<figcaption class="cap">
-								<p class="date">${ formattedDate }</p>
-								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-							</figcaption>
-						</figure>
+					<details>
+						<div>
+							<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						</div>
+						<summary>
+							<figure class="reg_fg">
+								<video controls src="${ block.attachment.url }"></video>
+								<figcaption class="cap">
+									<p class="date">${ formattedDate }</p>
+									<p class="add">+</p>
+								</figcaption>
+							</figure>
+						</summary>
+					</details>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
@@ -151,16 +176,26 @@ let renderBlock = (block) => {
 			let pdfItem =
 			`
 				<li class="pdf_block">
+					<details>
+					<div>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						<a class = href="${ block.attachment.url }">
+							<p class= "tag outwards">PDF</p>
+						</a>
+					</div>
+					<summary>
 						<figure class="reg_fg">
-						<img src="${ block.image.square.url }">
+							<img src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-								<a class = href="${ block.attachment.url }">
-									<p class= "tag outwards">PDF</p>
-								</a>
-							</figcaption>
-						<figure>
+								<p class="add">+</p>
+							</figcaption>	
+						</figure>
+					</summary>
+				</details>
+
+
+		
 				</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
@@ -194,17 +229,26 @@ let renderBlock = (block) => {
 		if (embed.includes('video')) {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
-				`
-					<li class="vid_block">
+			`
+			<li class="vid_block">
+				<details>
+					<div>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+					</div>
+					<summary>
 						<figure class="reg_fg">
 							${ block.embed.html }
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+								<p class="add">+</p>
 							</figcaption>
 						</figure>
-					</li>
-				`
+					</summary>
+				</details>
+			</li>
+			`
+
+
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
 			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 		}
@@ -264,7 +308,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 					block.classList.remove(highlightClass)
 				}
 			}, {
-				rootMargin: '-33% 0% -33% 0%', // CSS-ish: top/right/bottom/left.
+				rootMargin: '-50% 0% -50% 0%', // CSS-ish: top/right/bottom/left.
 			})
 		
 			sectionObserver.observe(block) // Watch each one!
