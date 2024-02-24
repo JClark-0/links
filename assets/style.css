@@ -8,11 +8,13 @@
     --gutters: calc(var(--font-size)* 2)
 }
 
- * {border:1px solid red;}  
+ /* * {border:1px solid red;}   */
 
 body {
     font-family: var(--font-main);
     font-size: var(--font-size);
+    background-color: black;
+    color:white;
 }
 
 nav {
@@ -71,6 +73,7 @@ img {
     width: 100%;
     max-width: 100%;
     flex-shrink: 0;
+    border-radius: 20px;
 }
 
 summary {
@@ -94,6 +97,9 @@ summary {
 
 .img_block:hover, .pdf_block:hover, .txt_block:hover, .vid_block:hover, .lnk_block:hover, .aud_block:hover {
     border: 1px solid black;
+    border-radius: 60px;
+    opacity: 100%;
+    
     /* background-color: rgb(223, 223, 223); */
 }
 
@@ -143,7 +149,7 @@ a:hover {
 }
 .days {
     font-weight: 500;
-    color: rgb(0, 70, 220);
+    color: rgb(40, 108, 255);
 }
 .date{
     font-family: monospace;
@@ -198,6 +204,22 @@ footer {
     display: none;
     position: absolute;
     pointer-events: none;
+}
+
+li {
+    transition: all 1s ease-in-out; /* Transition everything. */
+	will-change: transform;
+}
+
+li.highlight {
+
+opacity: 10%;
+}
+
+
+.img_block::before {
+    content:'
+
 }
 
 

@@ -43,10 +43,9 @@ let renderBlock = (block) => {
 	let formattedDate = `${connectedDate.getMonth() + 1}.${connectedDate.getDate()}.${connectedDate.getFullYear()}`;
 
 
-
-
 	// Links!
 	if (block.class == 'Link') {
+		console.log(block);
 		let linkItem =
 			`
 			<li class="lnk_block">
@@ -55,7 +54,12 @@ let renderBlock = (block) => {
 						<a href="${ block.source.url }">${ block.title }</a>
 					</div>
 						<summary>
-							<p>click for links</p>
+						<figure class="reg_fg">
+						<img src="${ block.image.square.url }" alt="${ block.title }">
+						<figcaption class="cap">
+							<p class="date">${ formattedDate }</p>
+							<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+						</figcaption>	
 						</summary>
 				</details>
 			</li>
@@ -65,7 +69,6 @@ let renderBlock = (block) => {
 
 
 	else if (block.class == 'Image') {
-		console.log(block)
 		let imageItem = 
 		`
 			<li class="img_block">
@@ -74,7 +77,6 @@ let renderBlock = (block) => {
 					<figcaption class="cap">
 						<p class="date">${ formattedDate }</p>
 						<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
-						
 					</figcaption>	
 				</figure>
 			</li>
@@ -105,18 +107,18 @@ let renderBlock = (block) => {
 		
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 
-		let highlightClass = 'crack';
+		// let highlightClass = 'crack';
 
 		// Select all buttons with the class "outwards"
-		let switchButtons = document.querySelectorAll('#explore');
+		// let switchButtons = document.querySelectorAll('#explore');
 	
 		// Iterate over each button and attach click event listener
-		switchButtons.forEach(button => {
-			button.onclick = () => {
+		// switchButtons.forEach(button => {
+		// 	button.onclick = () => {
 				// Toggle the class for the parent of the clicked button
-				button.closest('.txt_block').classList.toggle(highlightClass);
-			};
-		});
+		// 		button.closest('.txt_block').classList.toggle(highlightClass);
+		// 	};
+		// });
 	}
 
 	// // Uploaded (not linked) media…
@@ -235,7 +237,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
 	.then((response) => response.json()) // Return it as JSON data
 	.then((data) => { // Do stuff with the data
-		console.log(data) // Always good to check your response!
+		// console.log(data) // Always good to check your response!
 		placeChannelInfo(data) // Pass the data to the first function
 
 		// Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
@@ -248,6 +250,25 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		let channelUsers = document.getElementById('channel-users') // Show them together
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
+
+		let highlightClass = 'highlight' // Variables again.
+		let highlightBlocks = document.querySelectorAll('li') // Get all of them.
+		// Loop through the list, doing this `forEach` one.
+		highlightBlocks.forEach((block) => {
+			let sectionObserver = new IntersectionObserver((entries) => {
+				let [entry] = entries
+		
+				if (entry.isIntersecting) {
+					block.classList.add(highlightClass)
+				} else {
+					block.classList.remove(highlightClass)
+				}
+			}, {
+				rootMargin: '-33% 0% -33% 0%', // CSS-ish: top/right/bottom/left.
+			})
+		
+			sectionObserver.observe(block) // Watch each one!
+		})
 	})
 
 
@@ -279,3 +300,6 @@ function toggleCrack() {
 	var img = document.getElementById('mouseCrack');
 	img.classList.toggle('fade-out');
 }
+
+
+
