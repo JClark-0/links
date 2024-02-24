@@ -26,8 +26,6 @@ let placeChannelInfo = (data) => {
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
 
-
-
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
 
@@ -201,24 +199,25 @@ let renderBlock = (block) => {
 		channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
 		}
 
+
 		// Uploaded audio!
-		else if (attachment.includes('audio')) {
+		// else if (attachment.includes('audio')) {
 			// …still up to you, but here’s an `audio` element:
-			let audioItem =
-				`
-				<li class="aud_block">
-				<figure class="reg_fg">
-					<audio controls src="${ block.attachment.url }"></audio>
-					<ficaption class="cap">
-						<p class="date">${ formattedDate }</p>
-						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-					</figcaption
-				</figure>
-				</li>
-				`
-			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
+			// let audioItem =
+			// 	`
+			// 	<li class="aud_block">
+			// 	<figure class="reg_fg">
+			// 		<audio controls src="${ block.attachment.url }"></audio>
+			// 		<ficaption class="cap">
+			// 			<p class="date">${ formattedDate }</p>
+			// 			<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+			// 		</figcaption
+			// 	</figure>
+			// 	</li>
+			// 	`
+			// channelBlocks.insertAdjacentHTML('beforeend', audioItem)
 			// More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-		}
+		// }
 	}
 
 	// Linked media…
@@ -267,9 +266,8 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 	let userAddress =
 		`
 		<address>
-
 			<h3>${ user.first_name }</h3>
-			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
+			<p><a href="https://are.na/${ user.slug }">Are.na Profile ↗</a></p>
 		</address>
 		`
 	container.insertAdjacentHTML('beforeend', userAddress)
@@ -295,6 +293,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
 
+		//Scroll Behaviour
 		let highlightClass = 'highlight' // Variables again.
 		let highlightBlocks = document.querySelectorAll('li') // Get all of them.
 		// Loop through the list, doing this `forEach` one.
@@ -316,34 +315,31 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	})
 
 
-document.onclick = userClicked;
-function userClicked() {
-	var x = event.clientX;
-	var y = event.clientY;
-	var crackAppear = document.getElementById("mouseCrack");
-	crackAppear.style.display = 'block';
-	crackAppear.style.position = 'absolute';
-	crackAppear.style.left = x + 'px';
-	crackAppear.style.top = y + 'px';
+// document.onclick = userClicked;
+// function userClicked() {
+// 	var x = event.clientX;
+// 	var y = event.clientY;
+// 	var crackAppear = document.getElementById("mouseCrack");
+// 	crackAppear.style.display = 'block';
+// 	crackAppear.style.position = 'absolute';
+// 	crackAppear.style.left = x + 'px';
+// 	crackAppear.style.top = y + 'px';
 
-	var imageWidth = crackAppear.offsetWidth;
-    var imageHeight = crackAppear.offsetHeight;
-    var xOffset = imageWidth / 2;
-    var yOffset = imageHeight / 2;
+// 	var imageWidth = crackAppear.offsetWidth;
+//     var imageHeight = crackAppear.offsetHeight;
+//     var xOffset = imageWidth / 2;
+//     var yOffset = imageHeight / 2;
     
-    // Adjust the image position so that its center aligns with the mouse coordinates
-    crackAppear.style.left = (x - xOffset) + 'px';
-    crackAppear.style.top = (y - yOffset) + 'px';
+//     // Adjust the image position so that its center aligns with the mouse coordinates
+//     crackAppear.style.left = (x - xOffset) + 'px';
+//     crackAppear.style.top = (y - yOffset) + 'px';
 
-	toggleCrack();
+// 	toggleCrack();
 
-}
-
-
-function toggleCrack() {
-	var img = document.getElementById('mouseCrack');
-	img.classList.toggle('fade-out');
-}
+// }
 
 
-
+// function toggleCrack() {
+// 	var img = document.getElementById('mouseCrack');
+// 	img.classList.toggle('fade-out');
+// }
