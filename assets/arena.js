@@ -58,7 +58,7 @@ let renderBlock = (block) => {
 						<img src="${ block.image.square.url }" alt="${ block.title }">
 						<figcaption class="cap">
 							<p class="date">${ formattedDate }</p>
-							<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+							<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 						</figcaption>	
 						</summary>
 				</details>
@@ -76,7 +76,7 @@ let renderBlock = (block) => {
 					<img src="${ block.image.square.url }" alt="${ block.title }">
 					<figcaption class="cap">
 						<p class="date">${ formattedDate }</p>
-						<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 					</figcaption>	
 				</figure>
 			</li>
@@ -155,7 +155,7 @@ let renderBlock = (block) => {
 						<img src="${ block.image.square.url }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+								<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 								<a class = href="${ block.attachment.url }">
 									<p class= "tag outwards">PDF</p>
 								</a>
@@ -176,7 +176,7 @@ let renderBlock = (block) => {
 					<audio controls src="${ block.attachment.url }"></audio>
 					<ficaption class="cap">
 						<p class="date">${ formattedDate }</p>
-						<p>Added <span class="days">${ daysAgo } days ago </span><br>by ${ block.connected_by_username }</p>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 					</figcaption
 				</figure>
 				</li>
