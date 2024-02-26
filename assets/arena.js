@@ -49,7 +49,7 @@ let renderBlock = (block) => {
 			<li class="lnk_block">
 				<details>
 					<div>
-						<a href="${ block.source.url }">${ block.title }</a>
+						<a class="outwards" href="${ block.source.url }">${ block.title }</a>
 						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
 					</div>
 					<summary>
@@ -176,10 +176,9 @@ let renderBlock = (block) => {
 				<li class="pdf_block">
 					<details>
 					<div>
+						<a class="outwards" href="${ block.attachment.url }">${ block.title }</a>
 						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-						<a class = href="${ block.attachment.url }">
-							<p class= "tag outwards">PDF</p>
-						</a>
+
 					</div>
 					<summary>
 						<figure class="reg_fg">
@@ -191,12 +190,10 @@ let renderBlock = (block) => {
 						</figure>
 					</summary>
 				</details>
-
-
-		
 				</li>
 			`
 		channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
+
 		}
 
 
