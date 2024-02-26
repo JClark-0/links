@@ -91,6 +91,7 @@ let renderBlock = (block) => {
 		// <p class="tag">${ block.class }</p>
 
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+		console.log(block);
 	}
 
 
@@ -264,7 +265,7 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 		`
 		<address>
 			<h3>${ user.first_name }</h3>
-			<p><a href="https://are.na/${ user.slug }">Are.na Profile ↗</a></p>
+			<a class="outwards" href="https://are.na/${ user.slug }">Are.na Profile</a>
 		</address>
 		`
 	container.insertAdjacentHTML('beforeend', userAddress)
