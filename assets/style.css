@@ -116,7 +116,7 @@ section {
     border-radius: 20px;
 }
 
-img {
+.img_thumb {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -129,7 +129,7 @@ img {
     margin-top: var(--gutters);
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 30%;
 }
 .txt_block {
     padding-bottom: var(--gutters);

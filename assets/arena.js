@@ -54,7 +54,7 @@ let renderBlock = (block) => {
 					</div>
 					<summary>
 						<figure class="reg_fg">
-							<img src="${ block.image.square.url }" alt="${ block.title }">
+							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 									<p class="date">${ formattedDate }</p>
 									<p class="add">+</p>
@@ -78,7 +78,7 @@ let renderBlock = (block) => {
 					</div>
 					<summary>
 						<figure class="reg_fg">
-							<img src="${ block.image.square.url }" alt="${ block.title }">
+							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
 								<p class="add">+</p>
@@ -183,7 +183,7 @@ let renderBlock = (block) => {
 					</div>
 					<summary>
 						<figure class="reg_fg">
-							<img src="${ block.image.square.url }" alt="${ block.title }">
+							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
 								<p class="add">+</p>
