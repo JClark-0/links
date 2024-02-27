@@ -217,7 +217,7 @@ a:hover {
 	font-family: var(--font-symbol);
     font-size:80%;
     font-weight: 800;
-	content: ' &#x2197'; 
+	content: ' \2197'; 
 }
 .days {
     font-weight: 500;
