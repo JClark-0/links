@@ -316,6 +316,15 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		})
 	})
 
+	//button add remove on scroll position
+	const btnTop = document.querySelector(".top");
+	window.addEventListener("scroll", () => {
+		if (window.scrollY > 300) {
+			btnTop.classList.add("active");
+		} else {
+			btnTop.classList.remove("active");
+		}
+	});
 
 // document.onclick = userClicked;
 // function userClicked() {

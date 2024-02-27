@@ -44,7 +44,13 @@ nav {
     border-radius: 10px;
     position: fixed; 
     z-index: 1;
+    opacity: 0%;
+    transition: 1s; 
 
+}
+
+.top.active {
+    opacity: 100%;
 }
 
 header {
