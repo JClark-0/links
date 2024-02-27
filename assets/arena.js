@@ -71,6 +71,7 @@ let renderBlock = (block) => {
 
 
 	else if (block.class == 'Image') {
+
 		let imageItem = 
 		`
 			<li class="img_block">
@@ -88,6 +89,7 @@ let renderBlock = (block) => {
 						</figure>
 					</summary>
 				</details>
+				<img class="bg_icon" src ="assets/media/icons//SVG/icon1.svg" alt="Image key"> 
 			</li>
 		`
 		// <p class="tag">${ block.class }</p>
