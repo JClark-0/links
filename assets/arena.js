@@ -13,21 +13,23 @@ let channelSlug = 'cracks-in-everyday-life' // The “slug” is just the end of
 
 // First, let’s lay out some *functions*, starting with our basic metadata:
 let placeChannelInfo = (data) => {
+	console.log(data);
 	// Target some elements in your HTML:
 	// let channelTitle = document.getElementById('channel-title')
 	// let channelDescription = document.getElementById('channel-description')
-	// let channelCount = document.getElementById('channel-count')
+	let channelCount = document.getElementById('channel-count')
 	let channelLink = document.getElementById('channel-link')
 
 	// Then set their content/attributes to our data:
 	// channelTitle.innerHTML = data.title
 	// channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
-	// channelCount.innerHTML = data.length
+	channelCount.innerHTML = data.length
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
+
 
 	// To start, a shared `ul` where we’ll insert all our blocks
 	let channelBlocks = document.getElementById('channel-blocks')
@@ -43,7 +45,7 @@ let renderBlock = (block) => {
 
 	// Links!
 	if (block.class == 'Link') {
-		console.log(block);
+
 		let linkItem =
 			`
 			<li class="lnk_block">
