@@ -52,13 +52,26 @@ nav {
 .top.active {
     opacity: 100%;
 }
-
 header {
     padding-left: var(--gutters);
     padding-right: var(--gutters);
+    height: 100vh;
+}
+.web_head {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+}
+
+.arrow {
+    width: 14%;
+    position: absolute;
+    bottom: var(--gutters);;
+    transition: all 0.3s;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 main {
@@ -307,16 +320,13 @@ address {
         --font-size: 26px;
         }
 
-    header {
+    .web_head {
         flex-direction: row;
         row-gap: var(--gutters);
         align-items: center;
 
     }
 
-    h1 {
-        margin-top: 0px;
-    }
 
     .intro {
         margin-left: calc(var(--gutters)*2);
