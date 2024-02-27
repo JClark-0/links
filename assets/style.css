@@ -70,7 +70,6 @@ ul {
 li {
     width: 100%;
     border-radius: 20px;
-    
 }
 
 h1 {
@@ -87,8 +86,34 @@ h2 {
     margin-bottom: 10px;
 }
 
+h3 {
+    font-size: calc(var(--font-size));
+    font-weight: 300;
+}
+
+em {
+    font-style: italic;
+}
+
 .intro {
     max-width: 45ch;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    gap: calc(var(--gutters)/2);
+    margin-bottom: calc(var(--gutters)*2);
+    margin-top: calc(var(--gutters)*2);
+
+}
+
+.intro_blocks {
+    padding-bottom: 20%;
+    text-align: center;
+    padding-top: var(--gutters);
+    outline: 1px solid white; 
+    border-radius: 20px;
 }
 
 img {
@@ -99,6 +124,13 @@ img {
     border-radius: 20px;
 }
 
+.icon {
+    display: block;
+    margin-top: var(--gutters);
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
 .txt_block {
     padding-bottom: var(--gutters);
     padding-top: var(--gutters);
@@ -264,6 +296,10 @@ address {
     .intro {
         margin-left: calc(var(--gutters)*2);
 
+    }
+
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(calc((100% - (var(--gutters) * 2)) / 3), 1fr));
     }
 
     ul {
