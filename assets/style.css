@@ -127,6 +127,10 @@ section {
 
 }
 
+.intro_details {
+    padding-top: calc(var(--gutters)*2);
+}
+
 .intro_blocks {
     padding-bottom: 20%;
     text-align: center;
@@ -326,7 +330,6 @@ address {
         align-items: center;
 
     }
-
 
     .intro {
         margin-left: calc(var(--gutters)*2);
