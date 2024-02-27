@@ -198,11 +198,6 @@ blockquote {
 
 }
 
-audio {
-    width: 100%;
-    max-width: 100%;
-}
-
 .reg_fg {
     display: flex;
     flex-direction: column;
@@ -235,6 +230,15 @@ details div {
 a:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+audio {
+    width: 100%;
+    max-width: 100%;
+    margin-top: -10%;
+    background-color: rgb(246, 246, 246);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .outwards::after {
@@ -334,6 +338,10 @@ address {
     .intro {
         margin-left: calc(var(--gutters)*2);
 
+    }
+
+    audio {
+        margin-top: -20%;
     }
 
     section {

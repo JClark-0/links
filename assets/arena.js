@@ -203,23 +203,30 @@ let renderBlock = (block) => {
 
 
 		// Uploaded audio!
-		// else if (attachment.includes('audio')) {
-			// …still up to you, but here’s an `audio` element:
-			// let audioItem =
-			// 	`
-			// 	<li class="aud_block">
-			// 	<figure class="reg_fg">
-			// 		<audio controls src="${ block.attachment.url }"></audio>
-			// 		<ficaption class="cap">
-			// 			<p class="date">${ formattedDate }</p>
-			// 			<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-			// 		</figcaption
-			// 	</figure>
-			// 	</li>
-			// 	`
-			// channelBlocks.insertAdjacentHTML('beforeend', audioItem)
-			// More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-		// }
+		else if (attachment.includes('audio')) {
+			let audioItem =
+				`
+				<li class="aud_block">
+					<details>
+						<div>
+							<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+						</div>
+						<summary>
+							<figure class="reg_fg">
+								<img class="img_thumb" src="/assets/media/audio.png" alt="${ block.title }">
+								<audio controls src="${ block.attachment.url }"></audio>
+								<ficaption class="cap">
+									<p class="date">${ formattedDate }</p>
+									<img class="icon_small add" src ="assets/media/icons//SVG/icon4.svg" alt="Audio key"> 
+								</figcaption
+							</figure>
+						</summary>
+					</details>
+			</li>
+			`
+			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
+		
+		}
 	}
 
 	// Linked media…
