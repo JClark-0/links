@@ -139,6 +139,7 @@ section {
     position: absolute;
     top:0;
     left:0;
+    opacity: 0%;
 
 }
 .txt_block {
@@ -227,6 +228,12 @@ a:hover {
     font-family: monospace;
 }
 
+.icon_small {
+    width: 20%;
+    opacity: 70%;
+
+}
+
 @keyframes fadeOut {
     100% { opacity: 0; }
     0% { opacity: 1; }
@@ -248,10 +255,12 @@ li {
 }
 
 li.highlight {
-
 opacity: 2%;
 }
 
+.bg_icon.show {
+    opacity: 100%;
+}
 
 footer {
     font-size: calc(var(--font-size) / 1.2);

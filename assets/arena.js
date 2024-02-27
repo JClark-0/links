@@ -59,7 +59,7 @@ let renderBlock = (block) => {
 							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 									<p class="date">${ formattedDate }</p>
-									<p class="add">+</p>
+									<img class="icon_small add" src ="assets/media/icons//SVG/icon2.svg" alt="Link key"> 
 							</figcaption>
 						</figure>
 					</summary>
@@ -84,7 +84,7 @@ let renderBlock = (block) => {
 							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p class="add">+</p>
+								<img class="icon_small add" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
 							</figcaption>	
 						</figure>
 					</summary>
@@ -116,7 +116,7 @@ let renderBlock = (block) => {
 						</blockquote>
 						<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p class="add">+</p>
+								<img class="icon_small add" src ="assets/media/icons//SVG/icon5.svg" alt="Quote key"> 
 						</figcaption>
 					</figure>
 				</summary>
@@ -161,7 +161,7 @@ let renderBlock = (block) => {
 								<video controls src="${ block.attachment.url }"></video>
 								<figcaption class="cap">
 									<p class="date">${ formattedDate }</p>
-									<p class="add">+</p>
+									<img class="icon_small add" src ="assets/media/icons//SVG/icon8.svg" alt="Video key"> 
 								</figcaption>
 							</figure>
 						</summary>
@@ -190,7 +190,7 @@ let renderBlock = (block) => {
 							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p class="add">+</p>
+								<img class="icon_small add" src ="assets/media/icons//SVG/icon3.svg" alt="PDF key"> 
 							</figcaption>	
 						</figure>
 					</summary>
@@ -241,7 +241,7 @@ let renderBlock = (block) => {
 							${ block.embed.html }
 							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
-								<p class="add">+</p>
+								<img class="icon_small add" src ="assets/media/icons//SVG/icon8.svg" alt="Video key"> 
 							</figcaption>
 						</figure>
 					</summary>
@@ -304,9 +304,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 				let [entry] = entries
 		
 				if (entry.isIntersecting) {
-					block.classList.add(highlightClass)
-				} else {
 					block.classList.remove(highlightClass)
+				} else {
+					block.classList.add(highlightClass)
 				}
 			}, {
 				rootMargin: '-50% 0% -50% 0%', // CSS-ish: top/right/bottom/left.
