@@ -5,7 +5,8 @@
     --font-main: 'Poppins', sans-serif;
     --font-symbol: "Noto Sans Symbols 2", sans-serif;
     --font-size: 16px;
-    --gutters: calc(var(--font-size)* 2)
+    --gutters: calc(var(--font-size)* 2);
+    --code-font-size: 14px;
 }
 
  /* * {border:.1px solid red;}   */
@@ -108,8 +109,20 @@ li {
 }
 
 li:hover::before {
-    content:'test';
+    content:'data.contents.reverse().forEach((block) => {';
+    font-family: monospace;
     position: absolute;
+    top: -8%;
+    font-size: var(--code-font-size);
+    padding-bottom:calc(var(--gutters) /2);
+}
+
+li:hover::after {
+    content:'}';
+    font-family: monospace;
+    position: absolute;
+    font-size: var(--code-font-size);
+    bottom: -8%;
 }
 
 h1 {
@@ -125,6 +138,7 @@ h1:hover {
 h1:hover::before, h1:hover::after   {
     content:'<h1>';
     opacity: 40%;
+    font-size: var(--code-font-size);
 } 
 
 h2 {
@@ -169,11 +183,13 @@ section {
 
 .intro_blocks:hover {
     font-family: monospace;
+
     outline: none;
 }
 
 .intro_blocks:hover > h3::before, .intro_blocks:hover > h3::after  {
     content:'<h3>';
+    font-size: var(--code-font-size);
     opacity: 40%;
 } 
 
@@ -229,9 +245,6 @@ blockquote {
 }
 
 .cap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     font-size: calc(var(--font-size) / 1.2);
     padding-left:calc(var(--gutters) /2);
     padding-right:calc(var(--gutters) /2);
@@ -356,12 +369,10 @@ address {
         flex-direction: row;
         row-gap: var(--gutters);
         align-items: center;
-
     }
 
     .intro {
         margin-left: calc(var(--gutters)*2);
-
     }
 
     audio {
@@ -370,12 +381,9 @@ address {
 
     section {
         grid-template-columns: repeat(auto-fill, minmax(calc((100% - (var(--gutters) * 2)) / 3), 1fr));
-        
     }
 
-    ul {
-        grid-auto-rows: minmax(120px, auto);
-    }
+
 }
 
 
