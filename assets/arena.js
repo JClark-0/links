@@ -91,19 +91,6 @@ let renderBlock = (block) => {
 				</details>
 			</li>
 		`
-		// <li class="img_block">
-		// 				<div class="reg_fg">
-		// 					<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
-		// 					<div class="cap">
-		// 						<p class="date">${ formattedDate }</p>
-		// 						<img class="icon_small" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
-		// 					</div>	
-		// 				</div>
-		// <img class="bg_icon" src ="assets/media/icons//SVG/icon1.svg" alt="Image key"> 
-		// 	</li>
-
-		// <p class="tag">${ block.class }</p>
-
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		console.log(block);
 	}
@@ -331,6 +318,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		
 			sectionObserver.observe(block) // Watch each one!
 		})
+
 	})
 
 	//button add remove on scroll position
@@ -343,6 +331,35 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		}
 	});
 
+
+	document.onclick = userClicked;
+	function userClicked() {
+		var x = event.clientX;
+		var y = event.clientY;
+		var crackAppear = document.getElementById("mouseCrack");
+		crackAppear.style.display = 'block';
+		crackAppear.style.position = 'absolute';
+		crackAppear.style.left = x + 'px';
+		crackAppear.style.top = y + 'px';
+	
+		var imageWidth = crackAppear.offsetWidth;
+		var imageHeight = crackAppear.offsetHeight;
+		var xOffset = imageWidth / 2;
+		var yOffset = imageHeight / 2;
+		
+		// Adjust the image position so that its center aligns with the mouse coordinates
+		crackAppear.style.left = (x - xOffset) + 'px';
+		crackAppear.style.top = (y - yOffset) + 'px';
+	
+		toggleCrack();
+	
+	}
+	
+	
+	function toggleCrack() {
+		var img = document.getElementById('mouseCrack');
+		img.classList.toggle('fade-out');
+	}
 
 	// var crackImages = [
 	// 	'assets/media/crack.png',
@@ -374,31 +391,3 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	// }
 
 
-// document.onclick = userClicked;
-// function userClicked() {
-// 	var x = event.clientX;
-// 	var y = event.clientY;
-// 	var crackAppear = document.getElementById("mouseCrack");
-// 	crackAppear.style.display = 'block';
-// 	crackAppear.style.position = 'absolute';
-// 	crackAppear.style.left = x + 'px';
-// 	crackAppear.style.top = y + 'px';
-
-// 	var imageWidth = crackAppear.offsetWidth;
-//     var imageHeight = crackAppear.offsetHeight;
-//     var xOffset = imageWidth / 2;
-//     var yOffset = imageHeight / 2;
-    
-//     // Adjust the image position so that its center aligns with the mouse coordinates
-//     crackAppear.style.left = (x - xOffset) + 'px';
-//     crackAppear.style.top = (y - yOffset) + 'px';
-
-// 	toggleCrack();
-
-// }
-
-
-// function toggleCrack() {
-// 	var img = document.getElementById('mouseCrack');
-// 	img.classList.toggle('fade-out');
-// }
