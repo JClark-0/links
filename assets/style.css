@@ -334,8 +334,15 @@ opacity: 2%;
     right: 0;
 }
 
-.crack_button.clicked {
+.crack_button:hover {
     background-color:white;
+    color: black;
+    
+}
+
+.crack_button.clicked {
+    font-family: monospace;
+    background-color:rgb(255, 255, 255);
     color: black;
 }
 

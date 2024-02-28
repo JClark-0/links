@@ -307,7 +307,31 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			sectionObserver.observe(block) // Watch each one!
 		})
 
-	})
+		let clickedClass = 'clicked';
+		let switchButtons = document.querySelector('#webCrack');
+		
+		switchButtons.onclick = () => {
+			// Toggle the class for the clicked button
+			switchButtons.classList.toggle(clickedClass);
+	
+			if (switchButtons.classList.contains(clickedClass)) {
+				switchButtons.textContent = 'cracked';
+			} else {
+				switchButtons.textContent = 'crack';
+			}
+	
+			let channelDescription = document.getElementById('channel-description');
+		if (switchButtons.classList.contains(clickedClass)) {
+			channelDescription.innerHTML = 'channelDescription.innerHTML = window.markdownit().render (data.metadata.description) channelDescription.innerHTML = window.markdownit().render (data.metadata.description) channelDescription.innerHTML = window.markdownit().render (data.metadata.description)';
+			channelDescription.style.fontFamily ='monospace';
+		} else {
+			channelDescription.innerHTML = 'Whenever I find a moment of error in the city, I feel weirdly relieved. I think even in a city that seems too perfect without any room to fit in people like me can live and make a mistake. I enjoy exploring the city and discovering random street scenes. I imagine interesting stories from abandoned items and find humor in the moment of error.';
+			channelDescription.style.fontFamily ='Poppins';
+		}
+	
+		};
+
+	});
 
 	//button add remove on scroll position
 	const btnTop = document.querySelector(".top");
@@ -350,13 +374,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	}
 
 
-	let clickedClass = 'clicked';
-	let switchButtons = document.querySelector('#webCrack');
+
+
 	
-	switchButtons.onclick = () => {
-		// Toggle the class for the clicked button
-		switchButtons.classList.toggle(clickedClass);
-	};
 
 	// var crackImages = [
 	// 	'assets/media/crack.png',
