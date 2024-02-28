@@ -156,6 +156,18 @@ em {
     font-style: italic;
 }
 
+button {
+    border: 1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	cursor: pointer;
+    padding:calc(var(--gutters) /4);
+    text-align: center;
+    position: fixed;
+    top:0;
+    right: 0;
+
+}
+
 .intro {
     max-width: 45ch;
 }

@@ -121,14 +121,14 @@ let renderBlock = (block) => {
 			</li>
 		`
 
-		//<button class="outwards" id="explore">Explore</button>
+		//<button id="webCrack">Crack</button>
 		
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 
 		// let highlightClass = 'crack';
 
-		// Select all buttons with the class "outwards"
-		// let switchButtons = document.querySelectorAll('#explore');
+		// Select all buttons with the class "webCrack"
+		// let switchButtons = document.querySelectorAll('#webCrack');
 	
 		// Iterate over each button and attach click event listener
 		// switchButtons.forEach(button => {
@@ -389,5 +389,10 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	// 	imageElement.style.width = '100%';
 	// 	imageElement.style.height = 'auto'; 
 	// }
+
+	// document.getElementById("webCrack").addEventListener("click", myFunction)
+	// function myFunction() {
+	// 	document.getElementById("webCrack").innerHTML = "cracked";
+	//   }
 
 
