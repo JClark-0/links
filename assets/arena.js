@@ -16,13 +16,13 @@ let placeChannelInfo = (data) => {
 	console.log(data);
 	// Target some elements in your HTML:
 	// let channelTitle = document.getElementById('channel-title')
-	// let channelDescription = document.getElementById('channel-description')
+	let channelDescription = document.getElementById('channel-description')
 	let channelCount = document.getElementById('channel-count')
 	let channelLink = document.getElementById('channel-link')
 
 	// Then set their content/attributes to our data:
 	// channelTitle.innerHTML = data.title
-	// channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
+	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
 	channelCount.innerHTML = data.length
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
@@ -74,34 +74,34 @@ let renderBlock = (block) => {
 
 		let imageItem = 
 		`
-			<li class="img_block">
-						<div class="reg_fg">
+		<li class="img_block">
+				<details>
+					<div>
+						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+					</div>
+					<summary>
+						<figure class="reg_fg">
 							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
-							<div class="cap">
+							<figcaption class="cap">
 								<p class="date">${ formattedDate }</p>
 								<img class="icon_small add" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
-							</div>	
-						</div>
+							</figcaption>	
+						</figure>
+					</summary>
+				</details>
 			</li>
 		`
-
 		// <li class="img_block">
-		// 		<details>
-		// 			<div>
-		// 				<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-		// 			</div>
-		// 			<summary>
-		// 				<figure class="reg_fg">
+		// 				<div class="reg_fg">
 		// 					<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
-		// 					<figcaption class="cap">
+		// 					<div class="cap">
 		// 						<p class="date">${ formattedDate }</p>
-		// 						<img class="icon_small add" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
-		// 					</figcaption>	
-		// 				</figure>
-		// 			</summary>
-		// 		</details>
-		// 		<img class="bg_icon" src ="assets/media/icons//SVG/icon1.svg" alt="Image key"> 
+		// 						<img class="icon_small" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
+		// 					</div>	
+		// 				</div>
+		// <img class="bg_icon" src ="assets/media/icons//SVG/icon1.svg" alt="Image key"> 
 		// 	</li>
+
 		// <p class="tag">${ block.class }</p>
 
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
@@ -343,24 +343,35 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		}
 	});
 
-	var introBlocks = document.querySelectorAll('.intro_blocks');
 
-	introBlocks.forEach(function(element) {
-		element.addEventListener('click', function() {
-			replaceContentWithCrackImage(element);
-		});
-	});
+	// var crackImages = [
+	// 	'assets/media/crack.png',
+	// 	'assets/media/crack2.png',
+	// 	'assets/media/crack3.png',
+
+	// ];
+
+	// //button add remove on scroll position
+	// var introBlocks = document.querySelectorAll('.intro_blocks');
+
+	// introBlocks.forEach(function(element) {
+	// 	element.addEventListener('click', function() {
+	// 		replaceContentWithCrackImage(element);
+	// 	});
+	// });
 	
-	function replaceContentWithCrackImage(element) {
+	// function replaceContentWithCrackImage(element) {
 
-		var imageElement = element.querySelector('.icon');
+	// 	var imageElement = element.querySelector('.icon');
+
+	// 	var randomIndex = Math.floor(Math.random() * crackImages.length);
 		
-		// Replace the image source with the crack image
-		imageElement.src = 'assets/media/crack3.png';
-		imageElement.alt = 'Crack'; 
-		imageElement.style.width = '100%';
-		imageElement.style.height = 'auto'; 
-	}
+	// 	// Replace the image source with the crack image
+	// 	imageElement.src = crackImages[randomIndex];
+	// 	imageElement.alt = 'Crack'; 
+	// 	imageElement.style.width = '100%';
+	// 	imageElement.style.height = 'auto'; 
+	// }
 
 
 // document.onclick = userClicked;
