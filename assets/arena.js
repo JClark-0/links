@@ -75,23 +75,33 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 			<li class="img_block">
-				<details>
-					<div>
-						<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
-					</div>
-					<summary>
-						<figure class="reg_fg">
+						<div class="reg_fg">
 							<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
-							<figcaption class="cap">
+							<div class="cap">
 								<p class="date">${ formattedDate }</p>
 								<img class="icon_small add" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
-							</figcaption>	
-						</figure>
-					</summary>
-				</details>
-				<img class="bg_icon" src ="assets/media/icons//SVG/icon1.svg" alt="Image key"> 
+							</div>	
+						</div>
 			</li>
 		`
+
+		// <li class="img_block">
+		// 		<details>
+		// 			<div>
+		// 				<p>Added <span class="days">${ daysAgo } days ago </span>by ${ block.connected_by_username }</p>
+		// 			</div>
+		// 			<summary>
+		// 				<figure class="reg_fg">
+		// 					<img class="img_thumb" src="${ block.image.square.url }" alt="${ block.title }">
+		// 					<figcaption class="cap">
+		// 						<p class="date">${ formattedDate }</p>
+		// 						<img class="icon_small add" src ="assets/media/icons//SVG/icon1.svg" alt="Image key">
+		// 					</figcaption>	
+		// 				</figure>
+		// 			</summary>
+		// 		</details>
+		// 		<img class="bg_icon" src ="assets/media/icons//SVG/icon1.svg" alt="Image key"> 
+		// 	</li>
 		// <p class="tag">${ block.class }</p>
 
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
