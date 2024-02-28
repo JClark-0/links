@@ -343,6 +343,26 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		}
 	});
 
+	var introBlocks = document.querySelectorAll('.intro_blocks');
+
+	introBlocks.forEach(function(element) {
+		element.addEventListener('click', function() {
+			replaceContentWithCrackImage(element);
+		});
+	});
+	
+	function replaceContentWithCrackImage(element) {
+
+		var imageElement = element.querySelector('.icon');
+		
+		// Replace the image source with the crack image
+		imageElement.src = 'assets/media/crack3.png';
+		imageElement.alt = 'Crack'; 
+		imageElement.style.width = '100%';
+		imageElement.style.height = 'auto'; 
+	}
+
+
 // document.onclick = userClicked;
 // function userClicked() {
 // 	var x = event.clientX;
