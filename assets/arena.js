@@ -213,7 +213,7 @@ let renderBlock = (block) => {
 						</div>
 						<summary>
 							<figure class="reg_fg">
-								<img class="img_thumb" src="/assets/media/audio.png" alt="${ block.title }">
+								<img class="img_thumb" src="assets/media/audio.png" alt="${ block.title }">
 								<audio controls src="${ block.attachment.url }"></audio>
 								<ficaption class="cap">
 									<p class="date">${ formattedDate }</p>
