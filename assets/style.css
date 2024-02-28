@@ -23,8 +23,6 @@ body {
 
 nav {
     font-size: calc(var(--font-size) / 1.2);
-    display: flex;
-    justify-content: space-between;
     padding-top: var(--gutters);
     padding-left: var(--gutters);
     padding-right: var(--gutters);
@@ -36,10 +34,7 @@ nav {
     right: 0;
     background-color: white;
     color: black;
-    padding-left:calc(var(--gutters) /3);
-    padding-right:calc(var(--gutters) /3);
-    padding-bottom:calc(var(--gutters) /3);
-    padding-top:calc(var(--gutters) /3);
+    padding:calc(var(--gutters) /4);
     margin-right:calc(var(--gutters) /2);
     margin-bottom:calc(var(--gutters) /2);
     border-radius: 10px;
@@ -154,18 +149,6 @@ h3 {
 
 em {
     font-style: italic;
-}
-
-button {
-    border: 1px solid rgb(255, 255, 255);
-	border-radius: 10px;
-	cursor: pointer;
-    padding:calc(var(--gutters) /4);
-    text-align: center;
-    position: fixed;
-    top:0;
-    right: 0;
-
 }
 
 .intro {
@@ -326,7 +309,7 @@ audio {
     display: none;
     position: absolute;
     pointer-events: none;
-    width: 30%;
+    width: 40%;
 }
 
 li {
@@ -336,6 +319,24 @@ li {
 
 li.highlight {
 opacity: 2%;
+}
+
+.crack_button {
+    border: 1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	cursor: pointer;
+    padding:calc(var(--gutters) /4);
+    margin-right:calc(var(--gutters) /2);
+    margin-top:calc(var(--gutters) /2);
+    text-align: center;
+    position: fixed;
+    top:0;
+    right: 0;
+}
+
+.crack_button.clicked {
+    background-color:white;
+    color: black;
 }
 
 footer {

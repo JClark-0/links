@@ -121,22 +121,10 @@ let renderBlock = (block) => {
 			</li>
 		`
 
-		//<button id="webCrack">Crack</button>
+	
 		
 		channelBlocks.insertAdjacentHTML('beforeend', textItem)
 
-		// let highlightClass = 'crack';
-
-		// Select all buttons with the class "webCrack"
-		// let switchButtons = document.querySelectorAll('#webCrack');
-	
-		// Iterate over each button and attach click event listener
-		// switchButtons.forEach(button => {
-		// 	button.onclick = () => {
-				// Toggle the class for the parent of the clicked button
-		// 		button.closest('.txt_block').classList.toggle(highlightClass);
-		// 	};
-		// });
 	}
 
 	// // Uploaded (not linked) media…
@@ -360,6 +348,15 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		var img = document.getElementById('mouseCrack');
 		img.classList.toggle('fade-out');
 	}
+
+
+	let clickedClass = 'clicked';
+	let switchButtons = document.querySelector('#webCrack');
+	
+	switchButtons.onclick = () => {
+		// Toggle the class for the clicked button
+		switchButtons.classList.toggle(clickedClass);
+	};
 
 	// var crackImages = [
 	// 	'assets/media/crack.png',
